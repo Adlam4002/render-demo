@@ -50,4 +50,5 @@ app.post("/ramen", async (req, res) => {
         `,
     [flavour, price, spiciness, time_to_cook]
   );
+  console.log(req.body);
 });
