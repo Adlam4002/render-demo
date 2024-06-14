@@ -1,11 +1,11 @@
 console.log("Hello world!");
 let form = document.querySelector("#ramen-form");
-function buttonSubmit(event) {
+async function buttonSubmit(event) {
   event.preventDefault();
   const formData = new FormData(form);
   const formValues = Object.fromEntries(formData);
   console.log(formValues);
-  fetch("https://render-demo-39yd.onrender.com/ramen", {
+  await fetch("https://render-demo-39yd.onrender.com/ramen", {
     method: "post",
     headers: {
       "Content-Type": "application/json",
