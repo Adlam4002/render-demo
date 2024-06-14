@@ -8,7 +8,7 @@ function buttonSubmit(event) {
   fetch("https://render-demo-39yd.onrender.com/ramen", {
     method: "post",
     headers: {
-      "content-type": "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(formValues),
   });
@@ -16,7 +16,9 @@ function buttonSubmit(event) {
 form.addEventListener("submit", buttonSubmit);
 
 async function fetchAndRenderRamen() {
-  const response = await fetch("https://render-demo-39yd.onrender.com/ramen");
+  const response = await fetch(
+    "https://render-demo-39yd.onrender.com/ramen-list"
+  );
   const ramenList = await response.json();
   const ramenListDiv = document.getElementById("ramen-list");
   ramenListDiv.innerHTML = "";
