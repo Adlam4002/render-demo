@@ -5,7 +5,7 @@ function buttonSubmit(event) {
   const formData = new FormData(form);
   const formValues = Object.fromEntries(formData);
   console.log(formValues);
-  fetch("http://localhost:8080/ramen", {
+  fetch("https://render-demo-39yd.onrender.com/ramen", {
     method: "post",
     headers: {
       "content-type": "application/json",
@@ -14,3 +14,17 @@ function buttonSubmit(event) {
   });
 }
 form.addEventListener("submit", buttonSubmit);
+
+async function fetchAndRenderRamen() {
+  const response = await fetch("https://render-demo-39yd.onrender.com/ramen");
+  const ramenList = await response.json();
+  const ramenListDiv = document.getElementById("ramen-list");
+  ramenListDiv.innerHTML = "";
+
+  ramenList.forEach((ramen) => {
+    const ramenDiv = document.createElement("div");
+    ramenDiv.innerHTML = `<p>ID: ${ramen.id}, Flavour: ${ramen.flavour}, Price: ${ramen.price}, Spiciness: ${ramen.spiciness}, Time to cook: ${ramen.time_to_cook}</p>`;
+    ramenListDiv.appendChild(ramenDiv);
+  });
+}
+fetchAndRenderRamen();

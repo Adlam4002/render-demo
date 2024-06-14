@@ -35,6 +35,12 @@ app.get("/test", async (req, res) => {
         `);
   res.json(result.rows);
 });
+app.get("/ramen", async (req, res) => {
+  const result = await db.query(`
+       SELECT * FROM ramen
+        `);
+  res.json(result.rows);
+});
 app.post("/ramen", async (req, res) => {
   const { flavour, price, spiciness, time_to_cook } = req.body;
   await db.query(
