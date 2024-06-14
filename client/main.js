@@ -12,6 +12,7 @@ function buttonSubmit(event) {
     },
     body: JSON.stringify(formValues),
   });
+  fetchAndRenderRamen();
 }
 form.addEventListener("submit", buttonSubmit);
 
