@@ -24,7 +24,7 @@ a:hover {
 #ramen-form {
   display: flex;
   flex-direction: column;
-  width: 25% vw;
+  padding: 100px;
 }
 body {
   margin: 0;
